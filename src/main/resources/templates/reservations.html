@@ -18,6 +18,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Date</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,12 @@
                     <td><span th:text="${reservation.id}"> Id </span></td>
                     <td><span th:text="${reservation.name}"> Name </span></td>
                     <td><span th:text="${#temporals.format(reservation.date, 'dd-MMM-yyyy HH:mm')}"> Date </span></td>
+                    <td>
+                        <a th:href="@{/delete-reservation/{id}(id=${reservation.id})}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+
+                    </td>
                 </tr>
                 </tbody>
             </table>
