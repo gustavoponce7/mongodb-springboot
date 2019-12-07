@@ -27,3 +27,11 @@ db.reservations.deleteMany({})
 db.reservations.deleteOne({})
 db.reservations.drop()
 ```
+
+### Run The Application
+```
+mvn clean install
+mvn spring-boot:run
+```
+
+
