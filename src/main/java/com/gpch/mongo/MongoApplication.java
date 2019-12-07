@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,7 +27,10 @@ public class MongoApplication {
                reservationService.deleteAllReservations();
                List<String> reservations = Arrays.asList("Bob", "Peter", "Gus", "John", "David");
                reservations.forEach(reservation ->
-                       reservationService.saveReservation(Reservation.builder().name(reservation).build()) );
+                       reservationService.saveReservation(Reservation.builder()
+                               .name(reservation)
+                               .date(LocalDateTime.now())
+                               .build()) );
 
                reservationService.getAllReservations().forEach(reservation ->
                        log.info("RESERVATION --> " + reservation.getName() + " ID: " + reservation.getId()));

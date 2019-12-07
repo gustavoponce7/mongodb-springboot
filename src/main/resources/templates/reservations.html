@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>All Books</title>
+    <title>Reservations</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
@@ -15,8 +15,9 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th> Id</th>
-                    <th> Name</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Date</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                 <tr th:each="reservation : ${reservations}">
                     <td><span th:text="${reservation.id}"> Id </span></td>
                     <td><span th:text="${reservation.name}"> Name </span></td>
+                    <td><span th:text="${#temporals.format(reservation.date, 'dd-MM-yyyy HH:mm')}"> Date </span></td>
                 </tr>
                 </tbody>
             </table>
