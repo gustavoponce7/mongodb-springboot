@@ -18,9 +18,9 @@
             <table class="table">
                 <thead>
                 <tr>
-<!--
-                    <th>Id</th>
--->
+                    <!--
+                     <th>Id</th>
+                    -->
                     <th>Name</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -28,12 +28,12 @@
                 </thead>
                 <tbody>
                 <tr th:if="${reservations.empty}">
-                    <td colspan="2"> No Reservations Available </td>
+                    <td colspan="2"> No Reservations Available</td>
                 </tr>
                 <tr th:each="reservation : ${reservations}">
-<!--
+                    <!--
                     <td><span th:text="${reservation.id}"> Id </span></td>
--->
+                    -->
                     <td><span th:text="${reservation.name}"> Name </span></td>
                     <td><span th:text="${#temporals.format(reservation.date, 'dd-MM-yyyy HH:mm')}"> Date </span></td>
                     <td>

@@ -12,7 +12,7 @@
     </div>
 
     <form th:action="@{/save-reservation}" th:object="${reservation}" method="post">
-        <input type="hidden" th:value="${reservation.id}" name="id" />
+        <input type="hidden" th:value="${reservation.id}" name="id"/>
         <div class="form-group">
             <label for="name">Name:</label>
             <input th:field="*{name}" type="text" class="form-control" id="name">
@@ -28,7 +28,6 @@
         </a>
         <button type="submit" class="btn btn-success">Save</button>
     </form>
-</div>
 </div>
 </body>
 </html>
