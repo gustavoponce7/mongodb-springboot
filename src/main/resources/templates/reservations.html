@@ -10,12 +10,17 @@
             <h1> Reservations </h1>
         </div>
     </div>
+    <a th:href="@{/edit-add-reservation}">
+        <button type="button" class="btn btn-success">Add Reservation</button>
+    </a>
     <div class="row">
         <div class="col-md-6">
             <table class="table">
                 <thead>
                 <tr>
+<!--
                     <th>Id</th>
+-->
                     <th>Name</th>
                     <th>Date</th>
                     <th>Actions</th>
@@ -23,15 +28,20 @@
                 </thead>
                 <tbody>
                 <tr th:if="${reservations.empty}">
-                    <td colspan="2"> No Reservations Available</td>
+                    <td colspan="2"> No Reservations Available </td>
                 </tr>
                 <tr th:each="reservation : ${reservations}">
+<!--
                     <td><span th:text="${reservation.id}"> Id </span></td>
+-->
                     <td><span th:text="${reservation.name}"> Name </span></td>
-                    <td><span th:text="${#temporals.format(reservation.date, 'dd-MMM-yyyy HH:mm')}"> Date </span></td>
+                    <td><span th:text="${#temporals.format(reservation.date, 'dd-MM-yyyy HH:mm')}"> Date </span></td>
                     <td>
                         <a th:href="@{/delete-reservation/{id}(id=${reservation.id})}">
                             <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                        <a th:href="@{/edit-add-reservation/{id}(id=${reservation.id})}">
+                            <button type="button" class="btn btn-primary">Edit</button>
                         </a>
 
                     </td>

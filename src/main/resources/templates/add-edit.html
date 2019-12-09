@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add / Edit Reservations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Reservation </h1>
+        </div>
+    </div>
+
+    <form th:action="@{/save-reservation}" th:object="${reservation}" method="post">
+            <input type="hidden" th:value="${reservation.id}" name="id" />
+            <p>Name: <input type="text" th:field="*{name}" /></p>
+            <p>Date: <input type="text" th:field="*{date}" /> (dd-mm-yyyy hh:mm)</p>
+            <p><input type="submit" value="Save"/></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -5,6 +5,8 @@ import com.gpch.mongo.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ReservationService {
 
@@ -29,5 +31,9 @@ public class ReservationService {
 
     public void deleteReservationById(String id){
         reservationRepository.deleteById(id);
+    }
+
+    public Optional<Reservation> findReservationById(String id){
+        return reservationRepository.findById(id);
     }
 }
